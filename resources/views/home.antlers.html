@@ -5,7 +5,7 @@
             <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-[#EEF2F6] text-blue-600 text-xs font-semibold rounded-full mb-4">
                 <span class="w-1.5 h-1.5 bg-blue-600 rounded-full"></span> Referencie
             </span>
-            <h2 class="text-3xl md:text-4xl font-black text-gray-900 tracking-tight mb-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-4">
                 Skúsenosti, ktoré hovoria za nás
             </h2>
             <p class="text-gray-500 max-w-xl mx-auto text-sm md:text-base leading-relaxed">
@@ -27,12 +27,12 @@
         </div>
 
         {{ collection:main_features }}
-            <div class="bg-[#F1F3F5]/60 p-8 md:p-12 rounded-3xl relative overflow-hidden mb-5 border border-gray-100 flex flex-col justify-between min-h-[340px]">
+            <div class="bg-[#F1F3F5]/60 p-8 md:p-12 rounded-3xl relative overflow-hidden mb-2 border border-gray-100 flex flex-col justify-between min-h-[340px]">
                 
                 <div class="absolute right-0 top-0 bottom-0 w-1/2 h-full hidden md:block pointer-events-none select-none overflow-hidden">
                     {{ if logo }}
                         {{ logo }}
-                            <img src="{{ url }}" alt="" class="w-full h-full object-contain object-right scale-150 translate-x-12 opacity-[0.04] grayscale">
+                            <img src="{{ url }}" alt="" class="w-full h-full object-contain object-right scale-150 translate-x-8 opacity-[0.04] grayscale">
                         {{ /logo }}
                     {{ /if }}
                 </div>
@@ -44,7 +44,7 @@
                 
                 <div class="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-8 mt-auto">
                     
-                    <blockquote class="text-xl md:text-2xl font-extrabold text-gray-900 leading-snug tracking-tight max-w-4xl">
+                    <blockquote class="text-xl md:text-2xl font-bold text-gray-900 leading-snug tracking-tight max-w-4xl">
                         "{{ desc }}"
                     </blockquote>
                     
@@ -60,7 +60,7 @@
             </div>
 
             {{ collection:stats }}
-                <div class="bg-[#F1F3F5]/40 px-8 py-5 rounded-2xl flex flex-wrap items-center justify-between gap-6 mb-8 border border-gray-100/50">
+                <div class="bg-[#F1F3F5]/40 px-8 py-5 rounded-2xl flex flex-wrap items-center justify-between gap-6 mb-4 border border-gray-100/50">
                     <div class="flex flex-wrap gap-8 md:gap-16">
                         <div>
                             <span class="block text-2xl font-black text-gray-900 tracking-tight">{{ usetrenych_hodin }}</span>
@@ -90,11 +90,11 @@
             {{ /collection:stats }}
         {{ /collection:main_features }}
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
             {{ collection:features }}
                 <div class="bg-white p-8 md:p-10 rounded-3xl flex flex-col justify-between min-h-[260px] shadow-sm border border-gray-100 transition duration-300 hover:shadow-md">
                     
-                    <blockquote class="text-xl font-extrabold text-gray-900 leading-snug tracking-tight mb-8">
+                    <blockquote class="text-xl font-bold text-gray-900 leading-snug tracking-tight mb-8">
                         {{ desc }}
                     </blockquote>
                     
@@ -103,7 +103,7 @@
                             <span class="block font-bold text-gray-950 text-sm mb-0.5 leading-tight">{{ title }}</span>
                             <span class="text-xs text-gray-400 font-semibold tracking-wide">{{ role }}</span>
                         </div>
-                        <div class="flex items-center justify-end h-8 max-w-[120px] shrink-0">
+                        <div class="flex items-center justify-end h-18 max-w-[150px] shrink-0">
                             {{ if icon }}
                                 {{ icon }}
                                     <img src="{{ url }}" alt="{{ title }}" class="h-full w-auto object-contain grayscale opacity-70">
