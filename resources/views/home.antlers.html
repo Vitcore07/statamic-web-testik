@@ -1,163 +1,96 @@
-<!DOCTYPE html>
-<html lang="sk">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Firemné procesy pod kontrolou</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;   
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #ffffff;
-            color: #1e293b;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 10px;
-            padding: 2rem 1rem;
-            border: 3px solid #A766FB;
-        }
-
-        .container {
-            max-width: 1100px;
-            width: 100%;
-            text-align: center;
-            margin: 5rem 0 5rem 0;
-        }
-
-        .cont {
-            border: 2px solid #A766FB;
-            border-style: dotted;
-            border-radius: 1.25rem;
-        }
-
-        .badge {
-            display: inline-block;
-            background-color: #f1f5f9;
-            color: #64748b;
-            font-size: 0.75rem;
-            font-weight: 500;
-            padding: 0.35rem 0.85rem;
-            border-radius: 20px;
-            margin-bottom: 1rem;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #0f172a;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
-        }
-
-        .features-list {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.95rem;
-            color: #334155;
-            font-weight: 500;
-        }
-
-        .feature-item i {
-            color: #3985BE;
-            font-size: 1rem;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-top: 3.5rem;
-            margin-bottom: 3.5rem;
-            border: 2px solid #A766FB;
-            border-style: dotted;
-            border-radius: 1.25rem;
-        }
-
-        .card {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 1.25rem;
-            padding: 2rem;
-            text-align: left;
-        }
-
-        .icon-wrapper {
-            color: #3985BE;
-            font-size: 1.5rem;
-            margin-bottom: 1.25rem;
-            display: inline-block;
-        }
-
-        .card h3 {
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: #0f172a;
-            margin-bottom: 0.5rem;
-        }
-
-        .card p {
-            font-size: 0.925rem;
-            color: #64748b;
-            line-height: 1.5;
-        }
-
-        .footer-text {
-            font-size: 1.1rem;
-            color: #475569;
-            line-height: 1.6;
-            font-weight: 400;
-            border: 2px solid #A766FB;    
-            border-style: dotted;    
-            border-radius: 1.25rem;    
-        }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <div class="cont">
-        <span class="badge">Overené praxou</span>
-        <h1>Firemné procesy pod kontrolou</h1>        
-        <div class="features-list">
-            {{ collection:features }}            
-                <div class="feature-item">
-                    <i class="fa-solid fa-check"></i>
-                    <h3>{{ title }}</h3>
-                </div>
-            {{ /collection:features }}
-        </div> 
-    </div>
-        <div class="grid">
-            {{ collection:sluzby }}
-                <div class="card">
-                    <i class="fa-solid {{ icon }}"></i>
-                    <h3>{{ title }}</h3>
-                    <p>{{ popis }}</p>
-                </div>
-            {{ /collection:sluzby }}    
+<section class="py-16 bg-gray-50 font-sans">
+    <div class="max-w-6xl mx-auto px-4">
+        
+        <div class="text-center mb-12">
+            <span class="inline-block px-3 py-1 bg-blue-50 text-blue-600 text-xs font-semibold rounded-full mb-3">
+                • Referencie
+            </span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
+                Skúsenosti, ktoré hovoria za nás
+            </h2>
+            <p class="text-gray-600 max-w-lg mx-auto text-sm md:text-base leading-relaxed">
+                Pozrite sa, ako webBox pomáha firmám fungovať bez zbytočného papierovania a straty času.
+            </p>
         </div>
 
-        <p class="footer-text">
-            Skončujte s chaosom<br>
-            <strong>a majte vo firme poriadok.</strong>
-        </p>
-</div>
-</body>
-</html>
+        <div class="flex flex-wrap items-center justify-center gap-8 md:gap-12 mb-16 opacity-60 grayscale hover:grayscale-0 transition">
+            {{ collection:icons }}
+                <img src="{{ icon }}" alt="{{ title }}" class="h-6 w-auto object-contain">
+            {{ /collection:icons }}
+        </div>
+
+        {{ collection:main-features }}
+            <div class="bg-gray-100/70 p-8 md:p-12 rounded-3xl relative overflow-hidden mb-6 border border-gray-100">
+                <div class="absolute right-12 top-1/2 -translate-y-1/2 text-[12rem] font-black text-gray-200/50 select-none hidden md:block pointer-events-none uppercase">
+                    {{ title | substr(0, 1) }}
+                </div>
+                
+                <div class="relative z-10 max-w-2xl">
+                    <div class="mb-6">
+                        <span class="block font-bold text-gray-900 text-base">{{ autor }}</span>
+                        <span class="text-xs text-gray-500 uppercase tracking-wider font-semibold">{{ pozicia }}</span>
+                    </div>
+                    
+                    <blockquote class="text-xl md:text-2xl font-bold text-gray-800 leading-snug mb-8">
+                        V našej spoločnosti systém spracováva zložité striedanie zmien, sleduje priradenie k výrobným linkám a spravuje bezpečnostné predpisy.
+                    </blockquote>
+                    
+                    <div class="flex items-center">
+                        <img src="{{ logo_firmy }}" alt="{{ title }}" class="h-5 w-auto">
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gray-100/40 px-8 py-5 rounded-2xl flex flex-wrap items-center justify-between gap-6 mb-8 border border-gray-100">
+                <div class="flex flex-wrap gap-8 md:gap-12">
+                    <div>
+                        <span class="block text-xl font-extrabold text-gray-900">{{ stat_hodiny }}</span>
+                        <span class="text-xs text-gray-400">Ušetrených hodín mesačne</span>
+                    </div>
+                    <div class="border-l border-gray-200 h-8 my-auto hidden sm:block"></div>
+                    <div>
+                        <span class="block text-xl font-extrabold text-gray-900">{{ stat_pouzivatelia }}</span>
+                        <span class="text-xs text-gray-400">Používateľov systému</span>
+                    </div>
+                    <div class="border-l border-gray-200 h-8 my-auto hidden sm:block"></div>
+                    <div>
+                        <span class="block text-xl font-extrabold text-gray-900">{{ stat_moduly }}</span>
+                        <span class="text-xs text-gray-400">webBox moduly</span>
+                    </div>
+                </div>
+                
+                <div class="flex gap-2">
+                    <button class="w-10 h-10 rounded-full bg-white flex items-center justify-center border border-gray-200 shadow-sm text-gray-400 hover:text-gray-600 transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                    </button>
+                    <button class="w-10 h-10 rounded-full bg-white flex items-center justify-center border border-gray-200 shadow-sm text-gray-400 hover:text-gray-600 transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </button>
+                </div>
+            </div>
+        {{ /collection:main-features }}
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {{ collection:features }}
+                <div class="bg-gray-100/40 p-8 md:p-10 rounded-3xl flex flex-col justify-between min-h-[280px] border border-gray-100/60">
+                    
+                    <blockquote class="text-lg md:text-xl font-bold text-gray-800 leading-snug mb-8">
+                        {{ citat_recenzie }}
+                    </blockquote>
+                    
+                    <div class="flex items-center justify-between mt-auto pt-4 border-t border-gray-200/40">
+                        <div>
+                            <span class="block font-bold text-gray-900 text-sm">{{ autor }}</span>
+                            <span class="text-xs text-gray-500 font-medium">{{ pozicia }}</span>
+                        </div>
+                        <div>
+                            <img src="{{ logo_firmy }}" alt="{{ autor }}" class="h-6 w-auto max-w-[120px] object-contain">
+                        </div>
+                    </div>
+                    
+                </div>
+            {{ /collection:features }}
+        </div>
+
+    </div>
+</section>

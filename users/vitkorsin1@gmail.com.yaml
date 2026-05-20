@@ -10,3 +10,7 @@ preferences:
       view: list
     features:
       view: list
+    pages:
+      view: tree
+    stats:
+      view: list
