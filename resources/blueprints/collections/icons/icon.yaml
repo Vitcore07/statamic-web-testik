@@ -12,6 +12,12 @@ tabs:
               required: true
               validate:
                 - required
+          -
+            handle: icon
+            field:
+              container: assets
+              type: assets
+              display: Icon
   sidebar:
     display: Sidebar
     sections:

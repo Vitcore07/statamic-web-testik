@@ -25,7 +25,8 @@ tabs:
           -
             handle: icon
             field:
-              type: text
+              container: assets
+              type: assets
               display: Icon
   sidebar:
     display: Sidebar
