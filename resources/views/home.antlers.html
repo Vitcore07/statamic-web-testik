@@ -20,58 +20,65 @@
             {{ /collection:icons }}
         </div>
 
-        {{ collection:main_features }}
-            <div class="bg-gray-100/70 p-8 md:p-12 rounded-3xl relative overflow-hidden mb-6 border border-gray-100">
-                <div class="absolute right-12 top-1/2 -translate-y-1/2 text-[12rem] font-black text-gray-200/50 select-none hidden md:block pointer-events-none uppercase">
-                    {{ icon }}
+{{ collection:main_features }}
+            <div class="bg-[#F1F3F5]/60 p-8 md:p-12 rounded-3xl relative overflow-hidden mb-5 border border-gray-100 flex flex-col justify-between min-h-[340px]">
+                
+                <div class="absolute right-0 top-0 bottom-0 w-1/2 h-full hidden md:block pointer-events-none select-none overflow-hidden">
+                    {{ if logo }}
+                        <img src="{{ logo:url }}" alt="" class="w-full h-full object-contain object-right scale-150 translate-x-12 opacity-[0.04] grayscale">
+                    {{ /if }}
                 </div>
                 
-                <div class="relative z-10 max-w-2xl">
-                    <div class="mb-6">
-                        <span class="block font-bold text-gray-900 text-base">{{ title }}</span>
-                        <span class="text-xs text-gray-500 uppercase tracking-wider font-semibold">{{ role }}</span>
-                    </div>
+                <div class="relative z-10 max-w-2xl mb-6">
+                    <span class="block font-bold text-gray-900 text-base leading-none mb-1">{{ title }}</span>
+                    <span class="text-xs text-gray-400 font-semibold tracking-wider uppercase">{{ role }}</span>
+                </div>
+                
+                <div class="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-8 mt-auto">
                     
-                    <blockquote class="text-xl md:text-2xl font-bold text-gray-800 leading-snug mb-8">
-                        {{ desc }}
+                    <blockquote class="text-xl md:text-2xl font-bold text-gray-900 leading-snug tracking-tight max-w-3xl">
+                        "{{ desc }}"
                     </blockquote>
                     
-                    <div class="flex items-center">
-                        <img src="{{ logo }}" alt="Witzenmann" class="h-5 w-auto">
+                    <div class="flex items-center justify-end md:mb-1 shrink-0">
+                        {{ if logo }}
+                            <img src="{{ logo:url }}" alt="Witzenmann" class="h-5 w-auto object-contain grayscale opacity-70">
+                        {{ /if }}
                     </div>
+                    
                 </div>
             </div>
-            {{ collection:stats}}
-            <div class="bg-gray-100/40 px-8 py-5 rounded-2xl flex flex-wrap items-center justify-between gap-6 mb-8 border border-gray-100">
-                <div class="flex flex-wrap gap-8 md:gap-12">
-                    <div>
-                        <span class="block text-xl font-extrabold text-gray-900">{{ usetrenych_hodin }}</span>
-                        <span class="text-xs text-gray-400">Ušetrených hodín mesačne</span>
-                    </div>
-                    <div class="border-l border-gray-200 h-8 my-auto hidden sm:block"></div>
-                    <div>
-                        <span class="block text-xl font-extrabold text-gray-900">{{ pouzivatelov_systemu }}</span>
-                        <span class="text-xs text-gray-400">Používateľov systému</span>
-                    </div>
-                    <div class="border-l border-gray-200 h-8 my-auto hidden sm:block"></div>
-                    <div>
-                        <span class="block text-xl font-extrabold text-gray-900">{{ webbox_moduly }}</span>
-                        <span class="text-xs text-gray-400">webBox moduly</span>
-                    </div>
-                </div>
-                {{ /collection:stats }}
-                <div class="flex gap-2">
-                    <button class="w-10 h-10 rounded-full bg-white flex items-center justify-center border border-gray-200 shadow-sm text-gray-400 hover:text-gray-600 transition">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-                    </button>
-                    <button class="w-10 h-10 rounded-full bg-white flex items-center justify-center border border-gray-200 shadow-sm text-gray-400 hover:text-gray-600 transition">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                    </button>
-                </div>
-            </div>
-        {{ /collection:main_features }}
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {{ collection:stats }}
+                <div class="bg-[#F1F3F5]/40 px-8 py-5 rounded-2xl flex flex-wrap items-center justify-between gap-6 mb-8 border border-gray-100/50">
+                    <div class="flex flex-wrap gap-8 md:gap-12">
+                        <div>
+                            <span class="block text-2xl font-bold text-gray-900 tracking-tight">{{ usetrenych_hodin }}</span>
+                            <span class="text-xs text-gray-400 font-medium">Ušetrených hodín mesačne</span>
+                        </div>
+                        <div class="border-l border-gray-200 h-8 my-auto hidden sm:block"></div>
+                        <div>
+                            <span class="block text-2xl font-bold text-gray-900 tracking-tight">{{ pouzivatelov_systemu }}</span>
+                            <span class="text-xs text-gray-400 font-medium">Používateľov systému</span>
+                        </div>
+                        <div class="border-l border-gray-200 h-8 my-auto hidden sm:block"></div>
+                        <div>
+                            <span class="block text-2xl font-bold text-gray-900 tracking-tight">{{ webbox_moduly }}</span>
+                            <span class="text-xs text-gray-400 font-medium">webBox moduly</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-2">
+                        <button class="w-9 h-9 rounded-full bg-white flex items-center justify-center border border-gray-200/80 shadow-sm text-gray-400 hover:text-gray-600 transition">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                        </button>
+                        <button class="w-9 h-9 rounded-full bg-white flex items-center justify-center border border-gray-200/80 shadow-sm text-gray-400 hover:text-gray-600 transition">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+            {{ /collection:stats }}
+        {{ /collection:main_features }}
             {{ collection:features }}
                 <div class="bg-gray-100/40 p-8 md:p-10 rounded-3xl flex flex-col justify-between min-h-[280px] border border-gray-100/60">
                     
