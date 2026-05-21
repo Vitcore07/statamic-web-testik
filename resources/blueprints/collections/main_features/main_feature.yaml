@@ -28,6 +28,21 @@ tabs:
               container: assets
               type: assets
               display: Logo
+          -
+            handle: usetrenych_hodin
+            field:
+              type: text
+              display: Ušetrených-hodín
+          -
+            handle: pouzivatelov_systemu
+            field:
+              type: text
+              display: Používateľov-systému
+          -
+            handle: webbox_moduly
+            field:
+              type: text
+              display: Webbox-moduly
   sidebar:
     display: Sidebar
     sections:
